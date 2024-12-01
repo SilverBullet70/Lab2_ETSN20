@@ -194,7 +194,7 @@ public class BVA_TestCases {
     }
 
     @Test
-    public void testInvalidIsosceles2Classify() {
+    public void testInvalidIsosceles2Clagotssify() {
         assertEquals("scalene", invalidIsosceles2.classify());
     }
 
