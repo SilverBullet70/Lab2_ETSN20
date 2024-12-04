@@ -34,6 +34,8 @@ public class BVA_TestCases {
 	private Triangle invalidImpossible;   // Invalid impossible triangle
 	private Triangle validImpossible;     // Valid impossible triangle
 
+	private Triangle validTriangle;
+	private Triangle invalidTriangle;
 	
 	
 	@Before
@@ -64,8 +66,11 @@ public class BVA_TestCases {
 		validScaleneRightAngled = new Triangle(3, 4, 5); // Valid scalene & right-angled triangle
 
 		// Impossible Triangle Tests
-		invalidImpossible = new Triangle(10, 10, 21);   // Invalid impossible triangle
-		validImpossible = new Triangle(10, 10, 19);     // Valid impossible triangle
+		invalidImpossible = new Triangle(10, 10, 19);
+		validImpossible = new Triangle(10, 10, 21);   
+		
+		  validTriangle = new Triangle(2, 4, 5);   
+		    invalidTriangle = new Triangle(1, 4, 5);
 
 	}
 
@@ -171,6 +176,11 @@ public class BVA_TestCases {
         assertFalse(invalidImpossible.isImpossible());
     }
     
+    @Test
+    public void testValidImpossible() {
+        assertTrue(validImpossible.isImpossible());
+    }
+    
     /********************************************************************/
     
     @Test
@@ -240,7 +250,33 @@ public class BVA_TestCases {
 
     @Test
     public void testValidImpossibleClassify() {
-        assertEquals("isosceles", validImpossible.classify());
+        assertEquals("impossible", validImpossible.classify());
     }
+    
+    /*************************************************************************/
+    
+    //area 
+    
+    @Test
+    public void testValidTriangleGetArea() {
+        assertEquals(3.8, validTriangle.getArea(), 0.1);
+    }
+
+    @Test
+    public void testInvalidTriangleGetArea() {
+        assertEquals(-1, invalidTriangle.getArea(), 0.1);
+    }
+    
+    //Parameter
+    @Test
+    public void testValidTriangleGetPerimeter() {
+        assertEquals(11, validTriangle.getPerimeter());
+    }
+
+    @Test
+    public void testInvalidTriangleGetPerimeter() {
+        assertEquals(-1, invalidTriangle.getPerimeter());
+    }
+
 
 }
