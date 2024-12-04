@@ -100,6 +100,11 @@ public class EP_TestCases {
 	}
 
 	@Test
+	public void testIsScaleneTriangleValid() {
+		assertTrue(validScaleneTriangle.isScalene());
+		
+	}
+	@Test
 	public void testIsScaleneTriangleInvalid() {
 		assertFalse(invalidScaleneTriangle.isScalene());
 
